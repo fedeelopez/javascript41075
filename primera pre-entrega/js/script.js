@@ -103,7 +103,7 @@ let precioTotal;
 let nombre = prompt('Hola ingrese su nombre por favor.');
 
 function saludo() {
-    alert(`Bienvenido a La Casa de la Tecnologia ${nombre}, elegi tus productos`);
+    alert(`Bienvenido a La Casa de la Tecnologia ${nombre}, elegi tus productos!!`);
 }
 
 function catalogo() {
@@ -113,7 +113,7 @@ function catalogo() {
         listaCelulares += `${celular.id}: ${celular.marca} ${celular.memoriaInterna} $${celular.precio} \n`;
     }
 
-    let idProducto = prompt(`Escriba el numero de producto que desea agregar al carrito, o escriba "FIN" para finalizar! 
+    let idProducto = prompt(`Escribi el numero de producto que desees agregar al carrito, o escribi "FIN" para finalizar!! 
     ${listaCelulares} \n`);
 
 
@@ -124,16 +124,16 @@ function catalogo() {
             let index = carrito.findIndex((element) => element.id === celularSelec.id);
             carrito[index].agregarCelular();
             carrito[index].actualizarPrecio();
-            alert(`Has agregado otro ${carrito[index].marca}, al carro!!
-            Ya tienes ${carrito[index].cantidad} Unidades`);
+            alert(`Agregaste otro ${carrito[index].marca}, al carrito!!
+            Ya tenes ${carrito[index].cantidad} Unidades`);
             console.table(carrito);
         } else {
             carrito.push(new Celular(celulares[idProducto]));
-            alert(`Has agregado ${celulares[idProducto].marca} al carrito de compras!!`);
+            alert(`Agregaste ${celulares[idProducto].marca} al carrito de compras!!`);
             console.table(carrito);
         }
 
-        idProducto = prompt(`Quiere seguir comprando? Escriba el numero del producto que desea agregar al carrito o escriba "FIN" para finalizar! 
+        idProducto = prompt(`Queres seguir comprando?? Escribi el número del producto que desees agregar al carrito o escribi "FIN" para finalizar tu compra! 
         ${listaCelulares}`);
     }
 }
@@ -152,5 +152,5 @@ catalogo();
 precioTotal = precioFinal();
 
 alert(`El total a pagar de tu compra es $${precioTotal}
-Muchas gracias por tu compra, que tenga un buen dia!`);
+Muchas gracias por tu compra, que tengas un buen dia!`);
 console.table(carrito);
