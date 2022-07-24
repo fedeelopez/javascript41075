@@ -151,6 +151,6 @@ saludo();
 catalogo();
 precioTotal = precioFinal();
 
-alert(`El total a pagar de tu compra es $${precioTotal}
+alert(`El total a pagar de tu compra es $${precioTotal}.
 Muchas gracias por tu compra, que tengas un buen dia!`);
 console.table(carrito);
