@@ -21,78 +21,78 @@ class Celular {
 const celulares = [{
         id: 0,
         marca: 'SAMSUNG A12',
-        memoriaInterna: '128gb',
-        precio: 20000
+        memoriaInterna: '64gb',
+        precio: 73999
     },
     {
         id: 1,
         marca: 'SAMSUNG A53',
         memoriaInterna: '128gb',
-        precio: 33200
+        precio: 108999
 
     },
     {
         id: 2,
-        marca: 'MOTOROLA MOTO G200',
-        memoriaInterna: '64gb',
-        precio: 32400
+        marca: 'SAMSUNG NOTE 10',
+        memoriaInterna: '256gb',
+        precio: 129999
     },
     {
         id: 3,
-        marca: 'MOTOROLA MOTO E',
+        marca: 'SAMSUNG S22 ULTRA',
         memoriaInterna: '256gb',
-        precio: 55500
+        precio: 339999
     },
     {
         id: 4,
-        marca: 'SAMSUNG NOTE 10',
+        marca: 'IPAD PRO 12.9"',
         memoriaInterna: '256gb',
-        precio: 75000
-
+        precio: 209999
     },
     {
         id: 5,
-        marca: 'MOTORLA MOTE E40',
-        memoriaInterna: '128GB',
-        precio: 55500
+        marca: 'IPAD PRO 11',
+        memoriaInterna: '128gb',
+        precio: 300000
+
     },
     {
         id: 6,
-        marca: 'IPHONE XS',
-        memoriaInterna: '256gb',
-        precio: 75000
+        marca: 'IPAD MINI',
+        memoriaInterna: '64gb',
+        precio: 149999
 
     },
     {
         id: 7,
-        marca: 'XIAOMI POCO X3',
+        marca: 'AIRPODS PRO',
         memoriaInterna: '256gb',
-        precio: 75000
-
+        precio: 59999
     },
     {
         id: 8,
-        marca: 'XIAOMI REDMI 9T',
-        memoriaInterna: '256gb',
-        precio: 55500
+        marca: 'IPHONE XS',
+        memoriaInterna: '64gb',
+        precio: 178000
+
     },
     {
         id: 9,
         marca: 'IPHONE 11 PRO',
-        memoriaInterna: '256gb',
-        precio: 75000
+        memoriaInterna: '128gb',
+        precio: 287000
     },
     {
         id: 10,
         marca: 'IPHONE 13 PRO',
-        memoriaInterna: '128GB',
-        precio: 55500
+        memoriaInterna: '256gb',
+        precio: 565000
     },
     {
         id: 11,
         marca: 'IPHONE 8 PLUS',
         memoriaInterna: '256gb',
-        precio: 75000
+        precio: 230000
     }
 ];
 

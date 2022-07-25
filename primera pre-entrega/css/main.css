@@ -15,12 +15,17 @@ body {
 .material-icons {
     color: black;
     font-size: 40px;
-    align-content: flex-end;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.precio {
+    font-weight: bold;
 }
 
 h1  {
     color: black;
-    text-align: center;
+    text-align:center;
     font-size: 65px;
     font-family: cursive;
     font-style: oblique;
@@ -29,6 +34,10 @@ h1  {
 h3 {
     color: black;
     text-align: center;
+}
+
+h5 {
+    font-style: italic;
 }
 
 .card {
@@ -45,5 +54,5 @@ h3 {
 
 .card-img-top {
     border-radius: 30px;
-    padding-top: 5px;
+    padding-top: 10px;
 }
