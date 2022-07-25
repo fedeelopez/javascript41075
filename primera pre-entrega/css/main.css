@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(https://images.unsplash.com/photo-1570113305754-c5c04f1f0274?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MzR8OTA3MTg1fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60);
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.material-icons {
+    color: black;
+    font-size: 40px;
+    align-content: flex-end;
+}
+
+h1  {
+    color: black;
+    text-align: center;
+    font-size: 65px;
+    font-family: cursive;
+    font-style: oblique;
+}
+
+h3 {
+    color: black;
+    text-align: center;
+}
+
+.card {
+    border-radius: 30px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 2);
+    cursor: default;
+    transition: all 400ms ease;
+}
+
+.card:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 8);
+    transform: translateY(-3%);
+}
+
+.card-img-top {
+    border-radius: 30px;
+    padding-top: 5px;
+}
