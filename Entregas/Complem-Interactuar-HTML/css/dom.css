@@ -51,7 +51,13 @@ h5 {
 }
 
 .carrito {
-    color: red;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+}
+
+h4 {
+    font-size: 30px;
 }
 
 .table {

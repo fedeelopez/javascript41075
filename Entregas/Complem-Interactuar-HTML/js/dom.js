@@ -138,7 +138,7 @@ function crearCards() {
                                 <li class="precio">$${celular.precio}</li>
                             </ul>
                         </p>
-                        <button class="btn btn-primary" type="submit">Agregar al carrito</button>
+                        <button class="btn btn-primary" type="submit" id='boton${celular.id}'>Agregar al carrito</button>
                     </div>
                 </div>
             </div>`
@@ -146,11 +146,24 @@ function crearCards() {
 };
 
 //CREANDO EVENTOS
+let carrito = [];
+
+//Asigna un evento a cada boton
+celulares.forEach(celular => {
+    document.getElementById(`boton${celular.id}`).addEventListener('click', function () {
+        agregarCarrito(celular);
+    });
+});
 
 
-
-
-
-
-
+//Agrega al carrito creando una tabla
+function agregarCarrito(celularComprado) {
+    document.getElementById('tableBody').innerHTML += `
+    <tr>
+    <td>${celularComprado.id}</td>
+    <td>${celularComprado.marca}</td>
+    <td>${celularComprado.memoriaInterna}</td>
+    <td>$ ${celularComprado.precio}</td>
+    </tr>`
+};
 
