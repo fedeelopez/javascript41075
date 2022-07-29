@@ -12,20 +12,13 @@ body {
     align-items: center;
 }
 
-.material-icons {
-    color: black;
-    font-size: 40px;
-    display: flex;
-    flex-direction: row-reverse;
-}
-
 .precio {
     font-weight: bold;
 }
 
-h1  {
+h1 {
     color: black;
-    text-align:center;
+    text-align: center;
     font-size: 65px;
     font-family: cursive;
     font-style: oblique;
@@ -57,3 +50,10 @@ h5 {
     padding-top: 10px;
 }
 
+.carrito {
+    color: red;
+}
+
+.table {
+    color: red;
+}
