@@ -165,4 +165,15 @@ function agregarCarrito(celularComprado) {
     <td>${celularComprado.memoriaInterna}</td>
     <td>$ ${celularComprado.precio}</td>
     </tr>`
+    sumaCarrito();
 };
+
+//Suma los precios de los productos agregados al carrito
+let suma = document.getElementById('sumaCarro');
+
+function sumaCarrito() {
+    let total = carrito.reduce((acc, celular) => acc + celular.precio, 0);
+    suma.innerHTML = `
+    <h5><strong>PRECIO TOTAL:</strong> $${total}</h5>
+`;
+}
