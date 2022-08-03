@@ -5,7 +5,7 @@
 }
 
 body {
-    background-image: url(https://images.unsplash.com/photo-1570113305754-c5c04f1f0274?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MzR8OTA3MTg1fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60);
+    background-image: url(https://images.unsplash.com/photo-1603566234499-85676f87022f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80);
     width: 100%;
     height: 100vh;
     justify-content: center;
@@ -17,16 +17,21 @@ body {
 }
 
 h1 {
-    color: black;
+    color:red;
     text-align: center;
     font-size: 65px;
     font-family: cursive;
     font-style: oblique;
 }
 
-h3 {
-    color: black;
+h2 {
+    color: red;
     text-align: center;
+}
+
+h3 {
+    font-family: 'Mouse Memoirs', sans-serif;
+    font-size: 45px;
 }
 
 h5 {
@@ -43,6 +48,7 @@ h5 {
 .card:hover {
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 8);
     transform: translateY(-3%);
+    transform: rotateZ(20deg);
 }
 
 .card-img-top {
@@ -51,10 +57,13 @@ h5 {
 }
 
 .carrito {
-    color: orangered;
+    color: red;
+    background-color: cadetblue;
     font-size: 15px;
     text-align: center;
+    margin-top: 25px;
 }
+
 
 h4 {
     font-size: 30px;
@@ -65,6 +74,6 @@ h4 {
 }
 
 h5 {
-    color: orangered;
+    color: red;
     text-align: center;
 }
