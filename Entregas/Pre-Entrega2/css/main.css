@@ -16,17 +16,18 @@ body {
     font-weight: bold;
 }
 
+.title {
+    background-color: black;
+}
+
 h1 {
     color:white;
+    background-color: rgb(13, 40, 248);
     text-align: center;
     font-size: 65px;
     font-family: cursive;
     font-style: oblique;
-}
-
-h2 {
-    color: white;
-    text-align: center;
+    padding: 30px;
 }
 
 h3 {

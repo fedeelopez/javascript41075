@@ -1,15 +1,32 @@
-//Cambio de titulo y subtitulo
-const titulo = document.getElementById('titulo')
+//Creando los elementos HTML
 
-titulo.innerText = 'LO MEJOR DE LA TECNOLOGIA'
+class Celular {
+  constructor(celular) {
+    this.id = celular.id
+    this.marca = celular.marca
+    this.memoriaInterna = celular.memoriaInterna
+    this.precio = celular.precio
+    this.condicion = celular.condicion
+  }
+}
 
-const subtitulo = document.getElementById('subtitulo')
+  class Carrito {
+  constructor() {
+    this.cart = []
+    this.total = 0
+  }
 
-subtitulo.innerText = 'Lo  vas a encontrar acá!!'
+  agregarAlCarrito(producto) {
+    this.cart.push(producto)
+  }
 
-
+  mostrarCarrito() {
+    return this.cart
+  }
+}
 
 let carrito = [];
+let productosjs = [];
 let cards = document.getElementById('contenedor');
 let suma = document.getElementById('sumaCarro');
 
@@ -20,14 +37,14 @@ function recuperarDelStorage() {
     carrito = [];
   } else {
     carrito = JSON.parse(localStorage.getItem("carrito"));
-    carrito.forEach(celularComprado => {
+    carrito.forEach(celuSeleccionado => {
       tableBody.innerHTML += `
       <tr>
-      <td>${celularComprado.id}</td>
-      <td>${celularComprado.marca}</td>
-      <td>${celularComprado.memoriaInterna}</td>
-      <td>${celularComprado.precio}</td>
-      <td><button id="btn-cerrar${celularComprado.id}" type="button" class="btn-close" aria-label="Close"></button></td>
+      <td>${celuSeleccionado.id}</td>
+      <td>${celuSeleccionado.marca}</td>
+      <td>${celuSeleccionado.memoriaInterna}</td>
+      <td>${celuSeleccionado.precio}</td>
+      <td><button id="btn-cerrar${celuSeleccionado.id}" type="button" class="btn-close" aria-label="Close"></button></td>
   </tr>
       `;
     })
@@ -67,28 +84,29 @@ celulares.forEach((celular) => {
 });
 
 //Agrega al carrito creando una tabla
-function agregarCarrito(celularComprado) {
-  carrito.push(celularComprado);
+function agregarCarrito(celuSeleccionado) {
+  carrito.push(celuSeleccionado);
   document.getElementById('tableBody').innerHTML += `
-    <tr id= "fila${celularComprado.id}">
-    <td>${celularComprado.id}</td>
-    <td>${celularComprado.marca}</td>
-    <td>${celularComprado.memoriaInterna}</td>
-    <td>$ ${celularComprado.precio}</td>
-    <td><button id="btn-cerrar${celularComprado.id}" type="button" class="btn-close" aria-label="Close"></button></td>
+    <tr id= "fila${celuSeleccionado.id}">
+    <td>${celuSeleccionado.id}</td>
+    <td>${celuSeleccionado.marca}</td>
+    <td>${celuSeleccionado.memoriaInterna}</td>
+    <td>$ ${celuSeleccionado.precio}</td>
+    <td><button id="btn-cerrar${celuSeleccionado.id}" type="button" class="btn-close" aria-label="Close"></button></td>
     </tr>`;
 
   sumaCarrito();
 
-  let botonEliminar = document.getElementById(`btn-cerrar${celularComprado.id}`);
-  botonEliminar.addEventListener("click", () => quitarDelCarrito(celularComprado.id));
+  let botonEliminar = document.getElementById(`btn-cerrar${celuSeleccionado.id}`);
+  botonEliminar.addEventListener("click", () => quitarDelCarrito(celuSeleccionado.id));
 
   //Guarda cada producto elejido en el storage 
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
+
 function quitarDelCarrito(id) {
-  let index = carrito.findIndex(celularComprado => celularComprado.id == id);
+  let index = carrito.findIndex(celuSeleccionado => celuSeleccionado.id == id);
   carrito.splice(index, 1);
   let fila = document.getElementById(`fila${id}`);
   let table = document.getElementById('tableBody');
