@@ -10,7 +10,7 @@ class Celular {
   }
 }
 
-  class Carrito {
+class Carrito {
   constructor() {
     this.cart = []
     this.total = 0
@@ -95,14 +95,24 @@ function agregarCarrito(celuSeleccionado) {
     <td><button id="btn-cerrar${celuSeleccionado.id}" type="button" class="btn-close" aria-label="Close"></button></td>
     </tr>`;
 
-  sumaCarrito();
+  if (agregarCarrito) {
+    Swal.fire({
+      title: `Agregaste el producto al carrito!`,
+      icon: 'success',
+      position: 'center',
+      confirmButtonText: 'OK!',
+    })
 
-  let botonEliminar = document.getElementById(`btn-cerrar${celuSeleccionado.id}`);
-  botonEliminar.addEventListener("click", () => quitarDelCarrito(celuSeleccionado.id));
-
-  //Guarda cada producto elejido en el storage 
-  localStorage.setItem("carrito", JSON.stringify(carrito));
+    sumaCarrito();
+  }
 }
+
+
+let botonEliminar = document.getElementById(`btn-cerrar${celuSeleccionado.id}`);
+botonEliminar.addEventListener("click", () => quitarDelCarrito(celuSeleccionado.id));
+
+//Guarda cada producto elejido en el storage 
+localStorage.setItem("carrito", JSON.stringify(carrito));
 
 
 function quitarDelCarrito(id) {
