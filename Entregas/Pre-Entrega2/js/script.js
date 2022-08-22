@@ -1,12 +1,12 @@
 //Creando los elementos HTML
 
 let carrito = [];
-let productosjs = [];
+let productosJSON = [];
 let cards = document.getElementById('contenedor');
 let suma = document.getElementById('sumaCarro');
 
-function crearCards () {
-  for (const celular of celulares) {
+function crearCards() {
+  for (const celular of productosJSON) {
     cards.innerHTML += `
         <div class="col mt-4 text-center">
                 <div class="card" style="width: 18rem;">
@@ -26,7 +26,7 @@ function crearCards () {
             </div>`
   }
 
-  celulares.forEach((celular) => {
+  productosJSON.forEach((celular) => {
     document.getElementById(`boton${celular.id}`).addEventListener('click', function () {
       agregarCarrito(celular)
     })
@@ -35,11 +35,14 @@ function crearCards () {
 
 crearCards();
 
+//RECUPERO DEL STORAGE LOS PRODUCTOS PREVIAMENTE SELECCIONADOS
+//y LOS VUELVO A IMPRIMIR EN LA TABLA
+recuperarDelStorage();
 
-
-function recuperarDelStorage () {
-  if (localStorage.getItem("carrito")) {
-    // pintar carrito
+function recuperarDelStorage() {
+  if (localStorage.getItem("carrito") == null) {
+    carrito = [];
+  } else {
     carrito = JSON.parse(localStorage.getItem("carrito"));
     carrito.forEach(celuSeleccionado => {
       tableBody.innerHTML += `
@@ -59,10 +62,11 @@ function recuperarDelStorage () {
   }
 }
 
-recuperarDelStorage();
+
+
 
 //Agrega al carrito creando una tabla
-function agregarCarrito (celuSeleccionado) {
+function agregarCarrito(celuSeleccionado) {
   carrito.push(celuSeleccionado);
   //Guarda cada producto elejido en el storage 
   localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -86,24 +90,35 @@ function agregarCarrito (celuSeleccionado) {
       position: 'center',
       confirmButtonText: 'OK!',
     })
-
-    sumaCarrito();
   }
+  sumaCarrito();
 }
 
-function quitarDelCarrito (id) {
+function quitarDelCarrito(id) {
   let index = carrito.findIndex(celuSeleccionado => celuSeleccionado.id == id);
   carrito.splice(index, 1);
   let fila = document.getElementById(`fila${id}`);
   let table = document.getElementById('tableBody');
   table.removeChild(fila);
-  localStorage.setItem('carrito', JSON.stringify(carrito))
+  localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
+
+
 //Suma los precios de los productos agregados al carrito
-function sumaCarrito () {
+function sumaCarrito() {
   let total = carrito.reduce((acc, celular) => acc + celular.precio, 0)
   suma.innerHTML = `
 <h5><strong>PRECIO TOTAL:</strong> $${total}</h5>
 `
 }
+
+async function traigoJSON() {
+  const urljson = "./productos.json"
+  const resp = await fetch(urljson)
+  const data = await resp.json()
+  productosJSON = data;
+  crearCards(productosJSON);
+}
+
+traigoJSON();
