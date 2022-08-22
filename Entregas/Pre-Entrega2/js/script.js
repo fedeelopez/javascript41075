@@ -5,35 +5,6 @@ let productosJSON = [];
 let cards = document.getElementById('contenedor');
 let suma = document.getElementById('sumaCarro');
 
-function crearCards() {
-  for (const celular of productosJSON) {
-    cards.innerHTML += `
-        <div class="col mt-4 text-center">
-                <div class="card" style="width: 18rem;">
-                    <img src="${celular.imagen}" class="card-img-top" alt="...">
-                    <div class="card-body border-2">
-                        <h3 class="card-title text-decoration-underline text-center">${celular.marca}</h3>
-                        <p class="card-text text-center">
-                            <ul id="ul">
-                                <li>${celular.memoriaInterna}</li>
-                                <li>${celular.condicion}</li>
-                                <li class="precio">$${celular.precio}</li>
-                            </ul>
-                        </p>
-                        <button class="btn btn-primary" type="button" id='boton${celular.id}'>Agregar al carrito</button>
-                    </div>
-                </div>
-            </div>`
-  }
-
-  productosJSON.forEach((celular) => {
-    document.getElementById(`boton${celular.id}`).addEventListener('click', function () {
-      agregarCarrito(celular)
-    })
-  })
-}
-
-crearCards();
 
 //RECUPERO DEL STORAGE LOS PRODUCTOS PREVIAMENTE SELECCIONADOS
 //y LOS VUELVO A IMPRIMIR EN LA TABLA
@@ -63,7 +34,35 @@ function recuperarDelStorage() {
 }
 
 
+crearCards();
 
+function crearCards() {
+  for (const celular of productosJSON) {
+    cards.innerHTML += `
+        <div class="col mt-4 text-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="${celular.imagen}" class="card-img-top" alt="...">
+                    <div class="card-body border-2">
+                        <h3 class="card-title text-decoration-underline text-center">${celular.marca}</h3>
+                        <p class="card-text text-center">
+                            <ul id="ul">
+                                <li>${celular.memoriaInterna}</li>
+                                <li>${celular.condicion}</li>
+                                <li class="precio">$${celular.precio}</li>
+                            </ul>
+                        </p>
+                        <button class="btn btn-primary" type="button" id='boton${celular.id}'>Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>`
+  }
+
+  productosJSON.forEach((celular) => {
+    document.getElementById(`boton${celular.id}`).addEventListener('click', function () {
+      agregarCarrito(celular)
+    })
+  })
+}
 
 //Agrega al carrito creando una tabla
 function agregarCarrito(celuSeleccionado) {
@@ -113,9 +112,8 @@ function sumaCarrito() {
 `
 }
 
-async function traigoJSON() {
-  const urljson = "./productos.json"
-  const resp = await fetch(urljson)
+ const traigoJSON = async () => {
+  const resp = await fetch('../json/productos.json')
   const data = await resp.json()
   productosJSON = data;
   crearCards(productosJSON);
