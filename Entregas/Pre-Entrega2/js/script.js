@@ -113,7 +113,7 @@ function sumaCarrito() {
 }
 
  const traigoJSON = async () => {
-  const resp = await fetch('../json/productos.json')
+  const resp = await fetch('./json/productos.json')
   const data = await resp.json()
   productosJSON = data;
   crearCards(productosJSON);
