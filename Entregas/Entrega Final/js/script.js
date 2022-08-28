@@ -1,12 +1,11 @@
 //Creando los elementos HTML
 
+
+
 let carrito = [];
 let productosJSON = [];
 let cards = document.getElementById('contenedor');
 let suma = document.getElementById('sumaCarro');
-
-
-
 
 //RECUPERO DEL STORAGE LOS PRODUCTOS PREVIAMENTE SELECCIONADOS
 //y LOS VUELVO A IMPRIMIR EN LA TABLA
