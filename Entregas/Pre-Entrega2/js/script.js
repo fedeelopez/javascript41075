@@ -6,6 +6,8 @@ let cards = document.getElementById('contenedor');
 let suma = document.getElementById('sumaCarro');
 
 
+
+
 //RECUPERO DEL STORAGE LOS PRODUCTOS PREVIAMENTE SELECCIONADOS
 //y LOS VUELVO A IMPRIMIR EN LA TABLA
 recuperarDelStorage();
@@ -100,6 +102,18 @@ function quitarDelCarrito(id) {
   let table = document.getElementById('tableBody');
   table.removeChild(fila);
   localStorage.setItem('carrito', JSON.stringify(carrito));
+
+  if (quitarDelCarrito) {
+    Toastify({
+      text: "Eliminaste el producto del carrito",
+      duration: 2000,
+      gravity: "bottom",
+      position: "center",
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+      }
+    }).showToast();
+  }
 }
 
 
@@ -112,7 +126,7 @@ function sumaCarrito() {
 `
 }
 
- const traigoJSON = async () => {
+const traigoJSON = async () => {
   const resp = await fetch('./json/productos.json')
   const data = await resp.json()
   productosJSON = data;
@@ -120,3 +134,4 @@ function sumaCarrito() {
 }
 
 traigoJSON();
+
